@@ -25,8 +25,8 @@ set ::env(DESIGN_NAME) mbist_top1
 set ::env(DESIGN_IS_CORE) "0"
 
 # Timing configuration
-set ::env(CLOCK_PERIOD) "8"
-set ::env(CLOCK_PORT) "u_cts_wb_clk_b1/X  u_cts_wb_clk_b2/X u_mem_sel.u_cts_mem_clk_a/X u_mem_sel.u_cts_mem_clk_a/X"
+set ::env(CLOCK_PERIOD) "10"
+set ::env(CLOCK_PORT) "u_cts_wb_clk_b1.u_buf/X  u_cts_wb_clk_b2.u_buf/X u_mem_sel.u_cts_mem_clk_a.u_buf/X u_mem_sel.u_cts_mem_clk_b.u_buf/X"
 
 set ::env(SYNTH_MAX_FANOUT) 4
 
@@ -78,7 +78,7 @@ set ::env(GND_PIN) [list {vssd1}]
 set ::env(FP_PIN_ORDER_CFG) $::env(DESIGN_DIR)/pin_order.cfg
 
 set ::env(FP_SIZING) absolute
-set ::env(DIE_AREA) "0 0 200 250"
+set ::env(DIE_AREA) "0 0 225 250"
 
 
 # If you're going to use multiple power domains, then keep this disabled.

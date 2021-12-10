@@ -171,8 +171,8 @@ assign bist_wdata = (op_invert) ? ~pat_data : pat_data;
 
 // Clock Tree branching to avoid clock latency towards SRAM path
 wire wb_clk_b1,wb_clk_b2;
-sky130_fd_sc_hd__clkbuf_8 u_cts_wb_clk_b1 (.A (wb_clk_i), . X(wb_clk_b1));
-sky130_fd_sc_hd__clkbuf_8 u_cts_wb_clk_b2 (.A (wb_clk_i), . X(wb_clk_b2));
+ctech_clk_buf u_cts_wb_clk_b1 (.A (wb_clk_i), . X(wb_clk_b1));
+ctech_clk_buf u_cts_wb_clk_b2 (.A (wb_clk_i), . X(wb_clk_b2));
 
 // wb_host clock skew control
 clk_skew_adjust u_skew_mbist

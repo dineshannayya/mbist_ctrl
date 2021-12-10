@@ -116,8 +116,8 @@ assign mem_mask_b   = (bist_en) ? {{BIST_MASK_WD}{1'b1}}       : func_mask_b;
 ctech_mux2x1 u_mem_clk_a_sel (.A0 (func_clk_a),.A1 (bist_clk),.S  (bist_en),     .X  (mem_clk_a));
 ctech_mux2x1 u_mem_clk_b_sel (.A0 (func_clk_b),.A1 (bist_clk),.S  (bist_en),     .X  (mem_clk_b));
 
-sky130_fd_sc_hd__clkbuf_16 u_cts_mem_clk_a (.A (mem_clk_a), . X(mem_clk_a_cts));
-sky130_fd_sc_hd__clkbuf_16 u_cts_mem_clk_b (.A (mem_clk_b), . X(mem_clk_b_cts));
+ctech_clk_buf u_cts_mem_clk_a (.A (mem_clk_a), . X(mem_clk_a_cts));
+ctech_clk_buf u_cts_mem_clk_b (.A (mem_clk_b), . X(mem_clk_b_cts));
 
 assign mem_din_b    = (bist_en) ? bist_wdata   : func_din_b;
 

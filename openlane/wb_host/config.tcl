@@ -43,6 +43,7 @@ set ::env(VERILOG_FILES) "\
      $script_dir/../../verilog/rtl/lib/ctech_cells.sv     \
      $script_dir/../../verilog/rtl/lib/registers.v"
 
+set ::env(SYNTH_DEFINES) [list SYNTHESIS ]
 set ::env(SYNTH_READ_BLACKBOX_LIB) 1
 set ::env(SDC_FILE) "$script_dir/base.sdc"
 set ::env(BASE_SDC_FILE) "$script_dir/base.sdc"
@@ -69,7 +70,7 @@ set ::env(RUN_CVC) 1
 
 
 set ::env(PL_TIME_DRIVEN) 1
-set ::env(PL_TARGET_DENSITY) "0.30"
+set ::env(PL_TARGET_DENSITY) "0.40"
 
 
 
@@ -94,3 +95,4 @@ set ::env(QUIT_ON_TIMING_VIOLATIONS) "0"
 set ::env(QUIT_ON_MAGIC_DRC) "1"
 set ::env(QUIT_ON_LVS_ERROR) "0"
 set ::env(QUIT_ON_SLEW_VIOLATIONS) "0"
+set ::env(QUIT_ON_SETUP_VIOLATIONS) "0"

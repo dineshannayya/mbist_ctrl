@@ -162,8 +162,8 @@ assign user_irq  = 'h0;
 assign wbm_rst_n = !wbm_rst_i;
 assign wbs_rst_n = !wbm_rst_i;
 
-sky130_fd_sc_hd__bufbuf_16 u_buf_wb_rst     (.A(cfg_glb_ctrl[0]),.X(wbd_int_rst_n));
-sky130_fd_sc_hd__bufbuf_16 u_buf_bist_rst   (.A(cfg_glb_ctrl[1]),.X(bist_rst_n));
+ctech_buf u_buf_wb_rst     (.A(cfg_glb_ctrl[0]),.X(wbd_int_rst_n));
+ctech_buf u_buf_bist_rst   (.A(cfg_glb_ctrl[1]),.X(bist_rst_n));
 
 // wb_host clock skew control
 clk_skew_adjust u_skew_wh
@@ -186,9 +186,9 @@ wire         wbm_err_o1   = (reg_sel) ? 1'b0      : wbm_err_int;  // error
 logic wb_req;
 // Hold fix for STROBE
 wire  wbm_stb_d1,wbm_stb_d2,wbm_stb_d3;
-sky130_fd_sc_hd__dlygate4sd3_1 u_delay1_stb0 (.X(wbm_stb_d1),.A(wbm_stb_i));
-sky130_fd_sc_hd__dlygate4sd3_1 u_delay2_stb1 (.X(wbm_stb_d2),.A(wbm_stb_d1));
-sky130_fd_sc_hd__dlygate4sd3_1 u_delay2_stb2 (.X(wbm_stb_d3),.A(wbm_stb_d2));
+ctech_delay_buf u_delay1_stb0 (.X(wbm_stb_d1),.A(wbm_stb_i));
+ctech_delay_buf u_delay2_stb1 (.X(wbm_stb_d2),.A(wbm_stb_d1));
+ctech_delay_buf u_delay2_stb2 (.X(wbm_stb_d3),.A(wbm_stb_d2));
 always_ff @(negedge wbm_rst_n or posedge wbm_clk_i) begin
     if ( wbm_rst_n == 1'b0 ) begin
         wb_req    <= '0;

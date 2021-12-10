@@ -51,6 +51,8 @@
 ////          1 Wishbone Interconnect, 1 Global register          ////
 ////    0.4 - 23 Nov 2021, Dinesh A                               ////
 ////          Three Software Register added for signature at glbl ////
+////    0.5 - 10 Dec 2021, Dinesh A                               ////
+////          Full Chip STA with Caravel                          ////
 //////////////////////////////////////////////////////////////////////
 `default_nettype none
 

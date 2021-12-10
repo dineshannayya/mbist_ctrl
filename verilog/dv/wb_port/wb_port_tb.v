@@ -157,35 +157,6 @@ module wb_port_tb;
     // All standard cell need power hook-up for functionality work
     initial begin
 
-	force uut.mprj.u_wb_host.u_buf_wb_rst.VPWR =USER_VDD1V8;
-	force uut.mprj.u_wb_host.u_buf_wb_rst.VPB  =USER_VDD1V8;
-	force uut.mprj.u_wb_host.u_buf_wb_rst.VGND =VSS;
-	force uut.mprj.u_wb_host.u_buf_wb_rst.VNB = VSS;
-
-	force uut.mprj.u_wb_host.u_buf_bist_rst.VPWR =USER_VDD1V8;
-	force uut.mprj.u_wb_host.u_buf_bist_rst.VPB  =USER_VDD1V8;
-	force uut.mprj.u_wb_host.u_buf_bist_rst.VGND =VSS;
-	force uut.mprj.u_wb_host.u_buf_bist_rst.VNB = VSS;
-
-	force uut.mprj.u_wb_host.u_wbs_clk_sel.u_mux.VPWR =USER_VDD1V8;
-	force uut.mprj.u_wb_host.u_wbs_clk_sel.u_mux.VPB  =USER_VDD1V8;
-	force uut.mprj.u_wb_host.u_wbs_clk_sel.u_mux.VGND =VSS;
-	force uut.mprj.u_wb_host.u_wbs_clk_sel.u_mux.VNB = VSS;
-
-	force uut.mprj.u_wb_host.u_delay1_stb0.VPWR =USER_VDD1V8;
-	force uut.mprj.u_wb_host.u_delay1_stb0.VPB  =USER_VDD1V8;
-	force uut.mprj.u_wb_host.u_delay1_stb0.VGND =VSS;
-	force uut.mprj.u_wb_host.u_delay1_stb0.VNB = VSS;
-	
-	force uut.mprj.u_wb_host.u_delay2_stb1.VPWR =USER_VDD1V8;
-	force uut.mprj.u_wb_host.u_delay2_stb1.VPB  =USER_VDD1V8;
-	force uut.mprj.u_wb_host.u_delay2_stb1.VGND =VSS;
-	force uut.mprj.u_wb_host.u_delay2_stb1.VNB = VSS;
-
-	force uut.mprj.u_wb_host.u_delay2_stb2.VPWR =USER_VDD1V8;
-	force uut.mprj.u_wb_host.u_delay2_stb2.VPB  =USER_VDD1V8;
-	force uut.mprj.u_wb_host.u_delay2_stb2.VGND =VSS;
-	force uut.mprj.u_wb_host.u_delay2_stb2.VNB = VSS;
 
     end
 `endif    

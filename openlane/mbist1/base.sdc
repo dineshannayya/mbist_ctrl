@@ -6,7 +6,7 @@ current_design mbist_top
 ###############################################################################
 # Timing Constraints
 ###############################################################################
-create_clock -name wb_clk_i -period 8.0000 [get_ports {wb_clk_i}]
+create_clock -name wb_clk_i -period 10.0000 [get_ports {wb_clk_i}]
 create_generated_clock -name bist_mem_clk_a -add -source [get_ports {wb_clk_i}] -master_clock [get_clocks wb_clk_i] -divide_by 1 -comment {Mem Clock A} [get_ports mem_clk_a]
 create_generated_clock -name bist_mem_clk_b -add -source [get_ports {wb_clk_i}] -master_clock [get_clocks wb_clk_i] -divide_by 1 -comment {Mem Clock B} [get_ports mem_clk_b]
 
@@ -17,9 +17,14 @@ set_clock_uncertainty -setup 0.2500 wb_clk_i
 set_clock_uncertainty -setup 0.2500 mem_clk_a
 set_clock_uncertainty -setup 0.2500 mem_clk_b
 
-set_clock_uncertainty -hold 0.1500 wb_clk_i
-set_clock_uncertainty -hold 0.1500 mem_clk_a
-set_clock_uncertainty -hold 0.1500 mem_clk_b
+set_clock_uncertainty -hold 0.2500 wb_clk_i
+set_clock_uncertainty -hold 0.2500 mem_clk_a
+set_clock_uncertainty -hold 0.2500 mem_clk_b
+
+set ::env(SYNTH_TIMING_DERATE) 0.05
+puts "\[INFO\]: Setting timing derate to: [expr {$::env(SYNTH_TIMING_DERATE) * 10}] %"
+set_timing_derate -early [expr {1-$::env(SYNTH_TIMING_DERATE)}]
+set_timing_derate -late [expr {1+$::env(SYNTH_TIMING_DERATE)}]
 
 set_input_delay  -max 5.0000 -clock [get_clocks {wb_clk_i}] -add_delay [get_ports {rst_n}]
 set_input_delay  -min 2.0000 -clock [get_clocks {wb_clk_i}] -add_delay [get_ports {rst_n}]
