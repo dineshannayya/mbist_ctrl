@@ -53,6 +53,9 @@
 ////          Three Software Register added for signature at glbl ////
 ////    0.5 - 10 Dec 2021, Dinesh A                               ////
 ////          Full Chip STA with Caravel                          ////
+////    0.6  Jan 01, 2022, Dinesh A                               ////
+////       1. LA[0] is added as soft reset option at wb_port      ////
+////       2. Uart Master is added at wb_port                     ////
 //////////////////////////////////////////////////////////////////////
 `default_nettype none
 
@@ -490,9 +493,11 @@ wb_host u_wb_host(
         .cfg_clk_ctrl1        (cfg_clk_ctrl1    ),
         .cfg_clk_ctrl2        (cfg_clk_ctrl2    ),
 
+       .la_data_in            (la_data_in[17:0] ),
         .bist_rst_n           (bist_rst_n       ),
 	.wbd_int_rst_n        (wbd_int_rst_n    ),
 
+        .io_in                (io_in[0]         ),
         .io_out               (io_out           ),
         .io_oeb               (io_oeb           ),
         .la_data_out          (la_data_out      )

@@ -249,8 +249,8 @@ begin
          wb_user_core_write(`WB_GLBL_CTRL,'h1);
 
 	 wb_user_core_read_check(`GLBL_BIST_SOFT1,read_data,32'h6673_8354);
-	 wb_user_core_read_check(`GLBL_BIST_SOFT2,read_data,32'h1012_2021);
-	 wb_user_core_read_check(`GLBL_BIST_SOFT3,read_data,32'h0000_5000);
+	 wb_user_core_read_check(`GLBL_BIST_SOFT2,read_data,32'h0101_2022);
+	 wb_user_core_read_check(`GLBL_BIST_SOFT3,read_data,32'h0000_6000);
       end
    
       begin
@@ -307,7 +307,7 @@ user_project_wrapper u_top(
 
  
     // Logic Analyzer Signals
-    .la_data_in      ('0) ,
+    .la_data_in      ('1) ,
     .la_data_out     (),
     .la_oenb         ('0),
  

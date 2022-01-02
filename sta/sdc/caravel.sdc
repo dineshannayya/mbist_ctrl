@@ -15,6 +15,7 @@ create_clock [get_pins clocking/user_clk ] -name "user_clk2"  -period 25
 
 create_generated_clock -name wb_clk -add -source [get_ports {clock}] -master_clock [get_clocks clock] -divide_by 1 -comment {Wishbone User Clock} [get_pins mprj/wb_clk_i]
 create_clock -name wbs_clk_i -period 15.0000  [get_pins {mprj/u_wb_host/wbs_clk_out}]
+create_clock -name uartm_clk   -period 100.0000 [get_pins {mprj/u_wb_host/u_uart2wb.u_core.u_uart_clk.u_mux/X}]
 
 
 ## Case analysis
@@ -68,7 +69,7 @@ set_case_analysis 1 [get_pins {mprj/u_mbist8/cfg_cska_mbist[1]}]
 set_case_analysis 1 [get_pins {mprj/u_mbist8/cfg_cska_mbist[2]}]
 set_case_analysis 0 [get_pins {mprj/u_mbist8/cfg_cska_mbist[3]}]
 
-set_case_analysis 0 [get_pins {mprj/u_wb_host/cfg_cska_wh[0]}]
+set_case_analysis 1 [get_pins {mprj/u_wb_host/cfg_cska_wh[0]}]
 set_case_analysis 1 [get_pins {mprj/u_wb_host/cfg_cska_wh[1]}]
 set_case_analysis 1 [get_pins {mprj/u_wb_host/cfg_cska_wh[2]}]
 set_case_analysis 0 [get_pins {mprj/u_wb_host/cfg_cska_wh[3]}]
@@ -88,6 +89,7 @@ set_clock_groups -name async_clock -asynchronous \
  -group [get_clocks {clock wb_clk}]\
  -group [get_clocks {user_clk2}]\
  -group [get_clocks {wbs_clk_i}]\
+ -group [get_clocks {uartm_clk}]\
  -comment {Async Clock group}
 
 ## INPUT/OUTPUT DELAYS
