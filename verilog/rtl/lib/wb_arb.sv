@@ -106,7 +106,7 @@ always@(posedge clk or negedge rstn)
 //   - parks at last grant
 //////////////////////////////////////////////////////////////////////
 
-always@(state or req )
+always_comb
    begin
       next_state = state;	// Default Keep State
       case(state)		

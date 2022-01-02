@@ -390,16 +390,18 @@ begin
 end
 
 
-
-generic_register #(32,0  ) u_glb_ctrl (
-	      .we            ({32{sw_wr_en_0}}   ),		 
-	      .data_in       (wb_dat_i[31:0]    ),
-	      .reset_n       (wbm_rst_n         ),
-	      .clk           (wbm_clk_i         ),
+gen_32b_reg  #(32'h00) u_glb_ctrl	(
+	      //List of Inputs
+	      .reset_n    (wbm_rst_n     ),
+	      .clk        (wbm_clk_i     ),
+	      .cs         (sw_wr_en_0    ),
+	      .we         (wb_sel_i     ),		 
+	      .data_in    (wb_dat_i  ),
 	      
 	      //List of Outs
-	      .data_out      (reg_0[31:0])
-          );
+	      .data_out   (reg_0       )
+	      );
+
 
 generic_register #(8,8'h00 ) u_bank_sel (
 	      .we            ({8{sw_wr_en_1}}   ),		 

@@ -493,13 +493,13 @@ wb_host u_wb_host(
         .cfg_clk_ctrl1        (cfg_clk_ctrl1    ),
         .cfg_clk_ctrl2        (cfg_clk_ctrl2    ),
 
-       .la_data_in            (la_data_in[17:0] ),
         .bist_rst_n           (bist_rst_n       ),
 	.wbd_int_rst_n        (wbd_int_rst_n    ),
 
         .io_in                (io_in[0]         ),
         .io_out               (io_out           ),
         .io_oeb               (io_oeb           ),
+       .la_data_in            (la_data_in[17:0] ),
         .la_data_out          (la_data_out      )
 
     );
